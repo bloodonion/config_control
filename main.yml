@@ -1,0 +1,12 @@
+---
+- name: Replace line in file
+  hosts: all
+  become: true
+  tasks:
+    - name: editing line in defaults
+      lineinfile:
+        path: /etc/defaults/filename
+        line: "{{ edit1 }}"
+        state: present
+        insertafter: 2
+        regexp: '^.*$'
