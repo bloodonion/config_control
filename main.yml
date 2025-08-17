@@ -1,7 +1,4 @@
 ---
-
-
-
 - name: Replace line in file
   hosts: all
   become: true
@@ -17,7 +14,6 @@
         path: /etc/default/test_file
         regexp: '\A((?:[^\r\n]*\r?\n){2})[^\r\n]*(\r?\n|$)' # < where there is 2 change to the line before you want to change
         replace: '\1{{ edit1 }}\2'
-
 
     - name: dropping template
       template:
