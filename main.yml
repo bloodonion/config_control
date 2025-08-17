@@ -5,7 +5,7 @@
   tasks:
     - name: editing line in defaults
       lineinfile:
-        path: /etc/defaults/filename
+        path: /etc/defaults/test_file
         line: "{{ edit1 }}"
         state: present
         insertafter: 2
