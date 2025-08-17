@@ -22,7 +22,7 @@
     - name: dropping template
       template:
         src: templates/solr_config.j2
-        dest: /etc/defailt/test_template
+        dest: /etc/default/test_template
         owner: root
         group: root
-        mode '0644'
+        mode: '0644'

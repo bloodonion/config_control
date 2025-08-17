@@ -1,3 +1,2 @@
 ---
-vars:
-  var_port: "5000"
+var_port: "5000"
