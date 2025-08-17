@@ -1,12 +1,21 @@
 ---
+
+
+
 - name: Replace line in file
   hosts: all
   become: true
   tasks:
+    - name: pulling origional file
+      fetch:
+        src: "/etc/default/test_file"
+        dest: "local_backup/{{ inventory_hostname }}-configfile"
+        flat: no
+        
+
     - name: editing line in defaults
-      lineinfile:
+      replace:
         path: /etc/default/test_file
-        line: "{{ edit1 }}"
-        state: present
-        insertafter: 2
-        regexp: '^.*$'
+        regexp: '^{{ line_3_content | regex_escape() }}$'
+        replace: "{{ edit1 }}"
+        backup: true    # /tmp/testfile.txt
