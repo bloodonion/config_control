@@ -15,6 +15,6 @@
     - name: editing line in default
       replace:
         path: /etc/default/test_file
-        regexp: '^((?:[^\r\n]*\r?\n){2})[^\r\n]*(\r?\n|$)'
-        replace: '\1{{ edit1 }}"\2'
+        regexp: '\A((?:[^\r\n]*\r?\n){2})[^\r\n]*(\r?\n|$)'
+        replace: '{{ edit1 }}'
         backup: true    # /tmp/testfile.txt
