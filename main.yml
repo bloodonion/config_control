@@ -11,11 +11,12 @@
         src: "/etc/default/test_file"
         dest: "local_backup/{{ inventory_hostname }}-configfile"
         flat: no
-        
 
     - name: editing line in defaults
       replace:
         path: /etc/default/test_file
-        regexp: '^{{ line_3_content | regex_escape() }}$'
+        regexp: '^.*$'
         replace: "{{ edit1 }}"
+        after: '^(?:.*\n){2}' # match after 2 lines = line 3
+        before: '^(?:.*\n){3}'  # stop before line 4
         backup: true    # /tmp/testfile.txt
