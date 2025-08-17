@@ -15,6 +15,14 @@
     - name: editing line in default
       replace:
         path: /etc/default/test_file
-        regexp: '\A((?:[^\r\n]*\r?\n){2})[^\r\n]*(\r?\n|$)'
+        regexp: '\A((?:[^\r\n]*\r?\n){2})[^\r\n]*(\r?\n|$)' # < where there is 2 change to the line before you want to change
         replace: '\1{{ edit1 }}\2'
-        backup: true    # /tmp/testfile.txt
+
+
+    - name: dropping template
+      template:
+        src: templates/solr_config.j2
+        dest: /etc/defailt/test_template
+        owner: root
+        group: root
+        mode '0644'
