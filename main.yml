@@ -16,5 +16,5 @@
       replace:
         path: /etc/default/test_file
         regexp: '\A((?:[^\r\n]*\r?\n){2})[^\r\n]*(\r?\n|$)'
-        replace: '{{ edit1 }}'
+        replace: '\1{{ edit1 }}\2'
         backup: true    # /tmp/testfile.txt
