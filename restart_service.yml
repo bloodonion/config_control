@@ -1,0 +1,9 @@
+---
+- name: Restart a service
+  hosts: all
+  become: true
+  tasks:
+    - name: restarting chronyd.service
+      ansible.builtin.service:
+        name: chronyd
+        state: restarted
