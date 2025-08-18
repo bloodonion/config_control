@@ -1,7 +1,7 @@
 ---
-
-- name: restart_chronyd
-  become: true
-  ansible.builtin.service:
-    name: chronyd.service
-    state: restarted
+handlers:
+  - name: restart_chronyd
+    become: true
+    ansible.builtin.service:
+      name: chronyd.service
+      state: restarted
