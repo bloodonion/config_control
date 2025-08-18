@@ -9,6 +9,14 @@
     #     dest: "local_backup/{{ inventory_hostname }}-configfile"
     #     flat: no
 
+    - name: dropping test file
+      ansible.builtin.copy:
+        src: files/testfile.js
+        dest: /etc/default/test_file
+        owner: root
+        group: root
+        mode: '0644'
+
     - name: Checking local backed up config file.
       ansible.builtin.stat:
         path: "local_backup/{{ inventory_hostname }}-configfile"
