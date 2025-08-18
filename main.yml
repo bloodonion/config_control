@@ -2,6 +2,8 @@
 - name: Replace line in file
   hosts: all
   become: true
+  handlers:
+    - import_tasks: handlers/main.yml
   tasks:
     # - name: pulling origional file
     #   ansible.builtin.fetch:
