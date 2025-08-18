@@ -11,7 +11,7 @@
 
     - name: dropping test file
       ansible.builtin.copy:
-        src: files/testfile.js
+        src: files/testfile.j2
         dest: /etc/default/test_file
         owner: root
         group: root
