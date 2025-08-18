@@ -5,12 +5,6 @@
   handlers:
     - import_tasks: handlers/main.yml
   tasks:
-    # - name: pulling origional file
-    #   ansible.builtin.fetch:
-    #     src: "/etc/default/test_file"
-    #     dest: "local_backup/{{ inventory_hostname }}-configfile"
-    #     flat: no
-
     - name: dropping test file
       ansible.builtin.copy:
         src: files/testfile.j2
